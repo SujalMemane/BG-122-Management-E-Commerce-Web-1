@@ -1,115 +1,162 @@
-# Management-E-Commerce-Website
-# 🛒 ForgeCart – Frontend (Client Side UI Only)
+# 🛠️ ForgeAdmin – Frontend (Admin Dashboard UI Only)
 
 ## 📌 Overview
 
-**ForgeCart** is a frontend-only e-commerce web application developed for the **BackForge Hackathon**.
+**ForgeAdmin** is a **frontend-only e-commerce management dashboard** built for the **BackForge Hackathon**.
 
-It provides a complete **storefront UI prototype** that simulates a real-world shopping experience while leaving all backend logic—such as APIs, authentication, and database integration—to be implemented separately.
+It provides a complete **admin panel UI** for managing an online store, while leaving all backend logic such as APIs, authentication, and database integration to be implemented separately.
 
-This project is ideal for:
+This dashboard simulates a real-world store management system with modules like:
 
-* Hackathon participants
-* Backend developers looking for a ready UI
-* Learning frontend architecture of e-commerce systems
+* Products
+* Orders
+* Inventory
+* Analytics
+* Customers
+* Promotions
+* Staff Management
+
+📄 Reference Documentation: 
 
 ---
 
-## 🚀 Key Highlights
+## 🚀 Key Features
 
-* Modern **e-commerce UI/UX**
-* Fully **responsive design**
-* **Reusable components**
-* **Backend-ready structure**
-* Clean and scalable frontend architecture
+* Modern admin dashboard UI
+* Multi-page architecture
+* Fully responsive design
+* Reusable components
+* Backend-ready frontend structure
 
 ---
 
 ## 🏗️ System Architecture
 
-ForgeCart follows a **static multi-page architecture**:
+ForgeAdmin follows a **static multi-page dashboard architecture**:
 
-* Each feature has its own HTML page
-* Shared styling via a global CSS file
-* No backend or API integration
+* Each module is built as a separate HTML page
+* Shared CSS and Tailwind styling
+* No backend or database integration
 * Static placeholder data
 
 ### 🔹 Architecture Layers
 
 **1. UI Layer**
 
-* HTML5 (structure)
-* CSS (styling)
-* Font Awesome (icons)
+* HTML
+* CSS + Tailwind CSS
+* Font Awesome icons
 
 **2. Logic Layer**
 
-* Minimal / no JavaScript
-* No real functionality implemented
+* Minimal JavaScript
+* No API calls
+* No real functionality
 
 **3. Data Layer**
 
 * No database
-* Static product and order data
+* Static hardcoded data
 
 ---
 
-## 🛍️ Features & Modules
-
-### 🏠 Landing & Product Listing
-
-* Hero section
-* Product grid layout
-* Search bar UI
-* Category filters (UI only)
-* Featured products
-
----
-
-### 📦 Product Details
-
-* Product image gallery
-* Pricing section
-* Specifications
-* Add to Cart & Buy Now buttons
-
----
-
-### 🛒 Cart
-
-* Item listing
-* Quantity controls (UI)
-* Remove item option
-* Price summary
-* Checkout button
-
----
-
-### 💳 Checkout
-
-* Shipping form
-* Payment form
-* Order summary
-* Place Order button
-
----
-
-### 📜 Orders
-
-* Order history UI
-* Status tracking
-* Timestamps
-* Order summary
-
----
-
-### 🔐 Authentication
+## 🔐 Authentication Module
 
 * Login page
-* Registration page
-* User onboarding UI
+* Signup page
+* Credential input fields
 
-> ⚠️ Note: Authentication is UI-only. No real login system is implemented.
+⚠️ *Note: No real authentication or session management is implemented.*
+
+---
+
+## 📊 Dashboard Module
+
+* KPI cards (Sales, Revenue, Orders, Customers)
+* Overview analytics
+* Sidebar navigation
+* Recent activity panel
+
+---
+
+## 📈 Analytics Module
+
+* Traffic overview
+* Device usage stats
+* Sales trends
+* Engagement metrics
+
+---
+
+## 📦 Products Module
+
+* Product listing UI
+* SKU & stock display
+* Search and filter interface
+
+---
+
+## 🗂️ Categories Module
+
+* Category listing
+* Product grouping UI
+* Status indicators
+
+---
+
+## 📦 Inventory Module
+
+* Stock tracking UI
+* Low-stock alerts
+* Quantity indicators
+
+---
+
+## 🧾 Orders Module
+
+* Order listing
+* Status tracking
+* Customer order details
+
+---
+
+## 👥 Customers Module
+
+* Customer profiles
+* Purchase history
+* Spending insights
+
+---
+
+## ⭐ Reviews Module
+
+* Customer feedback UI
+* Ratings display
+* Sentiment overview
+
+---
+
+## 🎯 Promotions Module
+
+* Coupon management UI
+* Discount tracking
+* Expiry indicators
+
+---
+
+## 👨‍💼 Staff Module
+
+* Staff listing
+* Role assignment UI
+* Permission overview
+
+---
+
+## ⚙️ Settings Module
+
+* Profile settings
+* Email preferences
+* Notification toggles
 
 ---
 
@@ -117,44 +164,42 @@ ForgeCart follows a **static multi-page architecture**:
 
 ### Design Principles
 
-* Glassmorphism UI
-* Modern storefront feel
-* Clean and minimal navigation
-* Mobile-first responsiveness
+* Clean & professional layout
+* Card-based UI
+* Minimal navigation
+* Dashboard-focused experience
 
 ### Styling
 
-* Dark theme
-* Orange accent highlights
-* Rounded components
-* Shadows & hover effects
+* Tailwind CSS utilities
+* Custom CSS
+* Rounded cards
+* Soft shadows
 
 ### Interactions
 
+* Hover effects
 * Smooth transitions
-* Hover animations
-* Interactive form styling
+* Sidebar animations
 
 ---
 
 ## 📐 Layout Structure
 
-* Multi-page navigation
-* Consistent header & footer
-* Grid-based product layout
-* Responsive design across devices
+* Multi-page dashboard
+* Shared sidebar & header
+* Responsive grid system
+* Consistent spacing & typography
 
 ---
 
 ## 🧰 Tech Stack
 
-* **HTML5**
-* **CSS3**
-* **Font Awesome 6.4.0**
-* **Google Fonts**
-
-  * Outfit
-  * Inter
+* HTML5
+* CSS3
+* Tailwind CSS
+* Font Awesome 6.4.0
+* Google Fonts (Inter)
 
 ---
 
@@ -162,101 +207,100 @@ ForgeCart follows a **static multi-page architecture**:
 
 ```
 /
-├── index.html        # Landing / Product Listing
-├── product.html      # Product Details
-├── cart.html         # Cart Page
-├── checkout.html     # Checkout Flow
-├── orders.html       # Order History
-├── login.html        # Login Page
-├── register.html     # Registration Page
-├── style.css         # Global Styles
-├── assets/           # Images & Media
-└── components/       # Reusable UI Components
+├── index.html            # Login Page
+├── style.css             # Global Styles
+├── components/
+│   ├── sidebar.html
+│   └── header.html
+└── pages/
+    ├── signup.html
+    ├── dashboard.html
+    ├── analytics.html
+    ├── products.html
+    ├── categories.html
+    ├── inventory.html
+    ├── orders.html
+    ├── customers.html
+    ├── reviews.html
+    ├── promotions.html
+    ├── staff.html
+    └── settings.html
 ```
 
 ---
 
 ## 📱 Responsiveness
 
-ForgeCart is optimized for:
+Optimized for:
 
 * Desktop 💻
 * Tablet 📱
 * Mobile 📲
 
-Built using:
+Using:
 
-* CSS Grid
 * Flexbox
-* Mobile-first approach
+* CSS Grid
+* Tailwind responsive utilities
 
 ---
 
 ## ⚠️ Limitations
 
-This project is **frontend-only** and does NOT include:
-
-* Backend integration
-* API connectivity
-* Database storage
-* Authentication system
-* Cart persistence
-* Order processing
-* Search functionality
-* Filtering logic
-* Inventory management
+* No backend integration
+* No database
+* No authentication system
+* No API calls
+* No real data handling
+* No dynamic analytics
 
 ---
 
 ## 🔮 Future Enhancements
 
 * Backend API integration
-* JWT/session authentication
-* Dynamic product catalog
-* Real-time search
-* Advanced filtering
-* Persistent cart
-* Payment gateway integration
-* Order & inventory management
-* Wishlist system
-* Reviews & ratings
-* Personalized dashboards
+* JWT/OAuth authentication
+* Real-time analytics
+* Database connectivity
+* Advanced filtering & search
+* Role-based access control
+* Notifications system
 
 ---
 
 ## 🎯 Purpose
 
-ForgeCart is designed to:
+ForgeAdmin is designed to:
 
-* Provide a **ready-to-use frontend**
-* Accelerate **hackathon development**
-* Help teams focus on **backend implementation**
+* Provide a ready-made admin UI
+* Accelerate hackathon development
+* Allow focus on backend implementation
 
 ---
 
 ## 🏁 Conclusion
 
-ForgeCart serves as a **complete UI foundation** for building a full-stack e-commerce platform.
+ForgeAdmin offers a **complete admin dashboard UI foundation** for building a full-stack e-commerce management system.
 
-It enables developers to:
+It helps developers:
 
 * Skip UI development time
 * Focus on backend logic
-* Integrate APIs seamlessly
+* Build scalable admin systems
 
 ---
 
 ## 🤝 Contribution
 
-This project is part of the **BackForge Hackathon ecosystem**.
-Feel free to fork, extend, and integrate your backend solutions.
+This project is part of the **BackForge Hackathon** ecosystem.
+Feel free to fork, extend, and integrate backend solutions.
 
 ---
 
 ## 📜 License
 
-This project is open for educational and hackathon use.
+Open for educational and hackathon use.
 
 ---
 
-💡 *Build fast. Ship faster. Forge better.*
+💡 *Manage smarter. Build faster. Forge better.*

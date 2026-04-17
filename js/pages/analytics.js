@@ -3,11 +3,14 @@
  */
 import { auth } from '../firebase-config.js';
 import { requireAuth, populateUserUI, fmt, showToast } from '../ui-utils.js';
-import { analyticsService } from '../forge-api.js';
+import { analyticsService, settingsService } from '../forge-api.js';
 import { signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const user = await requireAuth(auth, '../index.html');
-populateUserUI(user);
+try {
+  const s = await settingsService.get(user.uid);
+  populateUserUI(user, { name: s.profile?.name, email: s.profile?.email, role: s.role });
+} catch (e) { populateUserUI(user); }
 document.getElementById('logoutBtn')?.addEventListener('click', async () => {
   await signOut(auth); window.location.href = '../index.html';
 });

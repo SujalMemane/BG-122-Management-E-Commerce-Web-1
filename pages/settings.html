@@ -178,8 +178,8 @@
             <h3 class="text-lg font-bold text-gray-900 mb-6">Profile Settings</h3>
             
             <div class="flex items-center gap-6 mb-8 pb-8 border-b border-gray-100">
-                <div class="w-20 h-20 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-brand-500/30">
-                    JD
+                <div id="settings-avatar" class="w-20 h-20 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-brand-500/30">
+                    —
                 </div>
                 <div>
                     <button class="px-4 py-2 border border-gray-200 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors mb-2 block">Change Avatar</button>
@@ -191,40 +191,45 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label class="forge-label">First Name</label>
-                        <input type="text" value="John" class="forge-input">
+                        <input id="sf-first" type="text" class="forge-input" placeholder="First name">
                     </div>
                     <div>
                         <label class="forge-label">Last Name</label>
-                        <input type="text" value="Doe" class="forge-input">
+                        <input id="sf-last" type="text" class="forge-input" placeholder="Last name">
                     </div>
                 </div>
                 <div>
                     <label class="forge-label">Email Address</label>
-                    <input type="text" value="admin@forgecart.com" class="forge-input">
+                    <input id="sf-email" type="email" class="forge-input" placeholder="you@example.com">
                 </div>
                 <div class="pt-6 border-t border-gray-100">
                     <h4 class="font-medium text-gray-900 mb-4">Email Preferences</h4>
                     <label class="flex items-center gap-3 cursor-pointer mb-4">
-                        <input type="checkbox" checked class="w-4 h-4 rounded border-gray-300 text-brand-500 focus:ring-brand-500">
+                        <input id="notif-daily-orders" type="checkbox" class="w-4 h-4 rounded border-gray-300 text-brand-500 focus:ring-brand-500">
                         <div>
                             <p class="text-sm font-medium text-gray-800">Daily Order Summary</p>
                             <p class="text-xs text-gray-500">Get a daily morning email detailing new orders.</p>
                         </div>
                     </label>
                     <label class="flex items-center gap-3 cursor-pointer mb-4">
-                        <input type="checkbox" checked class="w-4 h-4 rounded border-gray-300 text-brand-500 focus:ring-brand-500">
+                        <input id="notif-low-stock" type="checkbox" class="w-4 h-4 rounded border-gray-300 text-brand-500 focus:ring-brand-500">
                         <div>
                             <p class="text-sm font-medium text-gray-800">Low Stock Alerts</p>
                             <p class="text-xs text-gray-500">Get notified when a product inventory falls below 5.</p>
                         </div>
                     </label>
                     <label class="flex items-center gap-3 cursor-pointer">
-                        <input type="checkbox" class="w-4 h-4 rounded border-gray-300 text-brand-500 focus:ring-brand-500">
+                        <input id="notif-marketing" type="checkbox" class="w-4 h-4 rounded border-gray-300 text-brand-500 focus:ring-brand-500">
                         <div>
                             <p class="text-sm font-medium text-gray-800">Marketing Updates</p>
                             <p class="text-xs text-gray-500">Receive tips and updates from ForgeCart.</p>
                         </div>
                     </label>
+                </div>
+                <div class="pt-4">
+                    <button id="btn-save-settings" type="button" class="px-6 py-2.5 bg-brand-500 text-white text-sm font-medium rounded-xl hover:bg-brand-600 transition-colors shadow-sm shadow-brand-500/30">
+                        Save Changes
+                    </button>
                 </div>
             </form>
         </div>

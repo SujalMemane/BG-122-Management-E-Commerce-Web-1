@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Auth Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .status {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        input {
+            padding: 8px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>Firebase Authentication Test</h1>
+    
+    <div id="status" class="status info">Initializing Firebase...</div>
+    
+    <div id="user-info"></div>
+    
+    <h2>Test Login</h2>
+    <input type="email" id="test-email" placeholder="Email" value="test@example.com">
+    <input type="password" id="test-password" placeholder="Password" value="test123">
+    <button onclick="testLogin()">Test Login</button>
+    
+    <h2>Test Signup</h2>
+    <input type="email" id="signup-email" placeholder="Email" value="newuser@example.com">
+    <input type="password" id="signup-password" placeholder="Password" value="password123">
+    <button onclick="testSignup()">Test Signup</button>
+    
+    <h2>Actions</h2>
+    <button onclick="testLogout()">Logout</button>
+    <button onclick="checkAuthState()">Check Auth State</button>
+
+    <script type="module">
+        import { auth } from './js/firebase-config.js';
+        import { 
+            signInUser, 
+            signUpUser, 
+            signOutUser, 
+            getCurrentUser,
+            onAuthChange 
+        } from './js/auth.js';
+
+        const statusDiv = document.getElementById('status');
+        const userInfoDiv = document.getElementById('user-info');
+
+        // Make functions global for onclick handlers
+        window.testLogin = async function() {
+            const email = document.getElementById('test-email').value;
+            const password = document.getElementById('test-password').value;
+            
+            statusDiv.className = 'status info';
+            statusDiv.textContent = 'Attempting login...';
+            
+            const result = await signInUser(email, password);
+            
+            if (result.success) {
+                statusDiv.className = 'status success';
+                statusDiv.textContent = 'Login successful! User: ' + result.user.email;
+            } else {
+                statusDiv.className = 'status error';
+                statusDiv.textContent = 'Login failed: ' + result.error;
+            }
+        };
+
+        window.testSignup = async function() {
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            
+            statusDiv.className = 'status info';
+            statusDiv.textContent = 'Attempting signup...';
+            
+            const result = await signUpUser(email, password, 'Test User');
+            
+            if (result.success) {
+                statusDiv.className = 'status success';
+                statusDiv.textContent = 'Signup successful! User: ' + result.user.email;
+            } else {
+                statusDiv.className = 'status error';
+                statusDiv.textContent = 'Signup failed: ' + result.error;
+            }
+        };
+
+        window.testLogout = async function() {
+            statusDiv.className = 'status info';
+            statusDiv.textContent = 'Logging out...';
+            
+            const result = await signOutUser();
+            
+            if (result.success) {
+                statusDiv.className = 'status success';
+                statusDiv.textContent = 'Logout successful!';
+                userInfoDiv.innerHTML = '';
+            } else {
+                statusDiv.className = 'status error';
+                statusDiv.textContent = 'Logout failed: ' + result.error;
+            }
+        };
+
+        window.checkAuthState = function() {
+            const user = getCurrentUser();
+            if (user) {
+                statusDiv.className = 'status success';
+                statusDiv.textContent = 'User is logged in: ' + user.email;
+                userInfoDiv.innerHTML = `
+                    <div class="status info">
+                        <strong>Current User:</strong><br>
+                        Email: ${user.email}<br>
+                        UID: ${user.uid}<br>
+                        Display Name: ${user.displayName || 'Not set'}
+                    </div>
+                `;
+            } else {
+                statusDiv.className = 'status info';
+                statusDiv.textContent = 'No user is logged in';
+                userInfoDiv.innerHTML = '';
+            }
+        };
+
+        // Listen to auth state changes
+        onAuthChange((user) => {
+            console.log('Auth state changed:', user);
+            if (user) {
+                userInfoDiv.innerHTML = `
+                    <div class="status success">
+                        <strong>Logged in as:</strong> ${user.email}
+                    </div>
+                `;
+            } else {
+                userInfoDiv.innerHTML = `
+                    <div class="status info">
+                        Not logged in
+                    </div>
+                `;
+            }
+        });
+
+        // Initial check
+        statusDiv.className = 'status success';
+        statusDiv.textContent = 'Firebase initialized successfully!';
+        checkAuthState();
+    </script>
+</body>
+</html>

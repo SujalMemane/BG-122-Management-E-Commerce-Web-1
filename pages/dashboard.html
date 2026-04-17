@@ -21,6 +21,15 @@
             }
         }
     </script>
+    <!-- Firebase Authentication Integration -->
+    <script type="module" src="../js/auth-ui.js"></script>
+    <script type="module">
+        import { initAuthUI } from '../js/auth-ui.js';
+        // Initialize authentication when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            initAuthUI();
+        });
+    </script>
 </head>
 <body class="font-sans antialiased bg-gray-50 text-gray-800">
     <div id="dashboard" class="">
@@ -112,10 +121,10 @@
             </nav>
             <div class="border-t border-sidebar-border p-4 flex-shrink-0">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">JD</div>
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0" data-user-initials>JD</div>
                     <div class="sidebar-text min-w-0">
-                        <p class="text-white text-sm font-semibold truncate">John Doe</p>
-                        <p class="text-gray-500 text-xs truncate">admin@forgecart.com</p>
+                        <p class="text-white text-sm font-semibold truncate" data-user-name>John Doe</p>
+                        <p class="text-gray-500 text-xs truncate" data-user-email>admin@forgecart.com</p>
                     </div>
                     <a href="login.html" class="sidebar-text ml-auto text-gray-500 hover:text-red-400 transition-colors" title="Logout">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -146,7 +155,7 @@
             <button class="flex items-center gap-2.5 pl-2 pr-3 py-1.5 hover:bg-gray-100 rounded-xl transition-colors">
                 <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-xs">JD</div>
                 <div class="hidden sm:block text-left">
-                    <p class="text-sm font-semibold text-gray-800 leading-tight">John Doe</p>
+                    <p class="text-sm font-semibold text-gray-800 leading-tight" data-user-name>John Doe</p>
                     <p class="text-[11px] text-gray-400">Administrator</p>
                 </div>
                 <i class="fa-solid fa-chevron-down text-gray-400 text-xs hidden sm:block"></i>

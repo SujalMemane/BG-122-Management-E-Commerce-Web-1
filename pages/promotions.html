@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -86,10 +86,10 @@
     </nav>
     <div class="border-t border-sidebar-border p-4 flex-shrink-0">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">JD</div>
+            <div data-user-initials class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">—</div>
             <div class="sidebar-text min-w-0">
-                <p class="text-white text-sm font-semibold truncate">John Doe</p>
-                <p class="text-gray-500 text-xs truncate">admin@forgecart.com</p>
+                <p data-user-name class="text-white text-sm font-semibold truncate">Loading...</p>
+                <p data-user-email class="text-gray-500 text-xs truncate">—</p>
             </div>
             <a href="../index.html" class="sidebar-text ml-auto text-gray-500 hover:text-red-400 transition-colors" title="Logout">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -152,7 +152,7 @@
                                 <th class="px-6 py-4 font-medium text-right">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="text-sm">
+                        <tbody id="promotions-tbody" class="text-sm">
                             <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
                                 <td class="px-6 py-4"><span class="px-3 py-1.5 bg-brand-50 text-brand-700 font-bold border border-brand-100 rounded-lg">FORGE25</span></td>
                                 <td class="px-6 py-4 font-bold text-gray-900">25% OFF</td>
@@ -175,5 +175,9 @@
             </div>
         </div>
     </main>
+
+<script type="module" src="../js/pages/promotions.js"></script>
 </body>
 </html>
+
+

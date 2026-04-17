@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -86,10 +86,10 @@
     </nav>
     <div class="border-t border-sidebar-border p-4 flex-shrink-0">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">JD</div>
+            <div data-user-initials class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">—</div>
             <div class="sidebar-text min-w-0">
-                <p class="text-white text-sm font-semibold truncate">John Doe</p>
-                <p class="text-gray-500 text-xs truncate">admin@forgecart.com</p>
+                <p data-user-name class="text-white text-sm font-semibold truncate">Loading...</p>
+                <p data-user-email class="text-gray-500 text-xs truncate">—</p>
             </div>
             <a href="../index.html" class="sidebar-text ml-auto text-gray-500 hover:text-red-400 transition-colors" title="Logout">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -115,7 +115,7 @@
         </header>
 
         <div class="p-4 sm:p-6 lg:p-8 flex-1">
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div id="staff-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 <!-- Staff Card -->
                 <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
                     <div class="flex items-center gap-4 mb-6">
@@ -164,5 +164,9 @@
             </div>
         </div>
     </main>
+
+<script type="module" src="../js/pages/staff.js"></script>
 </body>
 </html>
+
+

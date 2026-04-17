@@ -86,10 +86,10 @@
     </nav>
     <div class="border-t border-sidebar-border p-4 flex-shrink-0">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">JD</div>
+            <div data-user-initials class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">—</div>
             <div class="sidebar-text min-w-0">
-                <p class="text-white text-sm font-semibold truncate">John Doe</p>
-                <p class="text-gray-500 text-xs truncate">admin@forgecart.com</p>
+                <p data-user-name class="text-white text-sm font-semibold truncate">Loading...</p>
+                <p data-user-email class="text-gray-500 text-xs truncate">—</p>
             </div>
             <a href="../index.html" class="sidebar-text ml-auto text-gray-500 hover:text-red-400 transition-colors" title="Logout">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -107,7 +107,7 @@
                     <h2 class="text-lg font-bold text-gray-900">Categories</h2>
                 </div>
                 <div class="flex items-center gap-3">
-                    <button class="px-5 py-2.5 bg-brand-500 text-white text-sm font-medium rounded-xl hover:bg-brand-600 transition-colors shadow-sm shadow-brand-500/30">
+                    <button id="btn-add-category" class="px-5 py-2.5 bg-brand-500 text-white text-sm font-medium rounded-xl hover:bg-brand-600 transition-colors shadow-sm shadow-brand-500/30">
                         <i class="fa-solid fa-plus mr-2"></i> New Category
                     </button>
                 </div>
@@ -115,65 +115,9 @@
         </header>
 
         <div class="p-4 sm:p-6 lg:p-8 flex-1">
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                <!-- Category Card -->
-                <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="flex items-center justify-between mb-6">
-                        <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition-colors">
-                            <i class="fa-solid fa-laptop text-2xl"></i>
-                        </div>
-                        <button class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-ellipsis"></i></button>
-                    </div>
-                    <h3 class="font-bold text-lg text-gray-900 mb-1">Electronics</h3>
-                    <p class="text-sm text-gray-500 mb-6">Laptops, Smartphones, and high-tech gadgets.</p>
-                    <div class="flex items-center justify-between pt-6 border-t border-gray-50">
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase font-bold tracking-wider">Products</p>
-                            <p class="font-bold text-gray-900">124</p>
-                        </div>
-                        <span class="px-3 py-1 bg-emerald-50 text-emerald-600 text-xs font-bold rounded-full">Active</span>
-                    </div>
-                </div>
-
-                <!-- Category Card -->
-                <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="flex items-center justify-between mb-6">
-                        <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                            <i class="fa-solid fa-shirt text-2xl"></i>
-                        </div>
-                        <button class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-ellipsis"></i></button>
-                    </div>
-                    <h3 class="font-bold text-lg text-gray-900 mb-1">Apparel</h3>
-                    <p class="text-sm text-gray-500 mb-6">Modern clothing, footwear, and accessories.</p>
-                    <div class="flex items-center justify-between pt-6 border-t border-gray-50">
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase font-bold tracking-wider">Products</p>
-                            <p class="font-bold text-gray-900">86</p>
-                        </div>
-                        <span class="px-3 py-1 bg-emerald-50 text-emerald-600 text-xs font-bold rounded-full">Active</span>
-                    </div>
-                </div>
-
-                <!-- Category Card -->
-                <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="flex items-center justify-between mb-6">
-                        <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
-                            <i class="fa-solid fa-couch text-2xl"></i>
-                        </div>
-                        <button class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-ellipsis"></i></button>
-                    </div>
-                    <h3 class="font-bold text-lg text-gray-900 mb-1">Home & Living</h3>
-                    <p class="text-sm text-gray-500 mb-6">Furniture, decor, and household essentials.</p>
-                    <div class="flex items-center justify-between pt-6 border-t border-gray-50">
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase font-bold tracking-wider">Products</p>
-                            <p class="font-bold text-gray-900">42</p>
-                        </div>
-                        <span class="px-3 py-1 bg-amber-50 text-amber-600 text-xs font-bold rounded-full">Hidden</span>
-                    </div>
-                </div>
-            </div>
+            <div id="categories-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
         </div>
     </main>
+<script type="module" src="../js/pages/categories.js"></script>
 </body>
 </html>

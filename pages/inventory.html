@@ -86,10 +86,10 @@
     </nav>
     <div class="border-t border-sidebar-border p-4 flex-shrink-0">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">JD</div>
+            <div data-user-initials class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">—</div>
             <div class="sidebar-text min-w-0">
-                <p class="text-white text-sm font-semibold truncate">John Doe</p>
-                <p class="text-gray-500 text-xs truncate">admin@forgecart.com</p>
+                <p data-user-name class="text-white text-sm font-semibold truncate">Loading...</p>
+                <p data-user-email class="text-gray-500 text-xs truncate">—</p>
             </div>
             <a href="../index.html" class="sidebar-text ml-auto text-gray-500 hover:text-red-400 transition-colors" title="Logout">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -108,7 +108,7 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <button class="px-4 py-2 border border-gray-200 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors"><i class="fa-solid fa-file-export mr-2"></i> Export CSV</button>
-                    <button class="px-5 py-2.5 bg-brand-500 text-white text-sm font-medium rounded-xl hover:bg-brand-600 transition-colors shadow-sm shadow-brand-500/30">
+                    <button id="btn-restock" class="px-5 py-2.5 bg-brand-500 text-white text-sm font-medium rounded-xl hover:bg-brand-600 transition-colors shadow-sm shadow-brand-500/30">
                         <i class="fa-solid fa-plus mr-2"></i> Restock
                     </button>
                 </div>
@@ -120,8 +120,8 @@
                 <div class="p-4 sm:p-5 border-b border-gray-100 flex items-center justify-between">
                     <h3 class="font-bold text-gray-900">Stock Management</h3>
                     <div class="flex items-center gap-2">
-                        <span class="flex items-center gap-1.5 px-3 py-1 bg-red-50 text-red-600 text-xs font-bold rounded-full">
-                            <i class="fa-solid fa-circle-exclamation"></i> 8 Low Stock Items
+                        <span id="low-stock-count" class="flex items-center gap-1.5 px-3 py-1 bg-red-50 text-red-600 text-xs font-bold rounded-full">
+                            <i class="fa-solid fa-circle-exclamation"></i> Loading...
                         </span>
                     </div>
                 </div>
@@ -136,54 +136,12 @@
                                 <th class="px-6 py-4 font-medium text-right">Action</th>
                             </tr>
                         </thead>
-                        <tbody class="text-sm">
-                            <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
-                                <td class="px-6 py-4 font-mono text-gray-500">FB-W-9912</td>
-                                <td class="px-6 py-4 font-bold text-gray-900">ForgeWatch Series 7</td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center gap-3">
-                                        <div class="w-24 h-2 bg-gray-100 rounded-full overflow-hidden">
-                                            <div class="h-full bg-emerald-500 rounded-full" style="width: 85%"></div>
-                                        </div>
-                                        <span class="font-medium">124</span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4"><span class="text-emerald-500 font-bold">In Stock</span></td>
-                                <td class="px-6 py-4 text-right"><button class="text-brand-500 font-bold hover:underline">Update</button></td>
-                            </tr>
-                            <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
-                                <td class="px-6 py-4 font-mono text-gray-500">FB-K-0021</td>
-                                <td class="px-6 py-4 font-bold text-gray-900">Mechanical Keyboard G Pro</td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center gap-3">
-                                        <div class="w-24 h-2 bg-gray-100 rounded-full overflow-hidden">
-                                            <div class="h-full bg-amber-500 rounded-full" style="width: 15%"></div>
-                                        </div>
-                                        <span class="font-medium">8</span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4"><span class="text-amber-500 font-bold">Low Stock</span></td>
-                                <td class="px-6 py-4 text-right"><button class="text-brand-500 font-bold hover:underline">Update</button></td>
-                            </tr>
-                            <tr class="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
-                                <td class="px-6 py-4 font-mono text-gray-500">FB-M-4452</td>
-                                <td class="px-6 py-4 font-bold text-gray-900">Ergonomic Mouse pad</td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center gap-3">
-                                        <div class="w-24 h-2 bg-gray-100 rounded-full overflow-hidden">
-                                            <div class="h-full bg-red-500 rounded-full" style="width: 2%"></div>
-                                        </div>
-                                        <span class="font-medium">0</span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4"><span class="text-red-500 font-bold">Out of Stock</span></td>
-                                <td class="px-6 py-4 text-right"><button class="text-brand-500 font-bold hover:underline">Update</button></td>
-                            </tr>
-                        </tbody>
+                        <tbody id="inventory-tbody" class="text-sm"></tbody>
                     </table>
                 </div>
             </div>
         </div>
     </main>
+<script type="module" src="../js/pages/inventory.js"></script>
 </body>
 </html>

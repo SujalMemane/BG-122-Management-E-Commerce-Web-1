@@ -121,12 +121,12 @@
             </nav>
             <div class="border-t border-sidebar-border p-4 flex-shrink-0">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0" data-user-initials>JD</div>
+                    <div data-user-initials class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">—</div>
                     <div class="sidebar-text min-w-0">
-                        <p class="text-white text-sm font-semibold truncate" data-user-name>John Doe</p>
-                        <p class="text-gray-500 text-xs truncate" data-user-email>admin@forgecart.com</p>
+                        <p data-user-name class="text-white text-sm font-semibold truncate">Loading...</p>
+                        <p data-user-email class="text-gray-500 text-xs truncate">—</p>
                     </div>
-                    <a href="login.html" class="sidebar-text ml-auto text-gray-500 hover:text-red-400 transition-colors" title="Logout">
+                    <a id="logoutBtn" href="#" class="sidebar-text ml-auto text-gray-500 hover:text-red-400 transition-colors" title="Logout">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     </a>
                 </div>
@@ -153,10 +153,10 @@
             </button>
             <div class="w-px h-8 bg-gray-200 mx-1 hidden sm:block"></div>
             <button class="flex items-center gap-2.5 pl-2 pr-3 py-1.5 hover:bg-gray-100 rounded-xl transition-colors">
-                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-xs">JD</div>
+                <div data-user-initials class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-xs">—</div>
                 <div class="hidden sm:block text-left">
-                    <p class="text-sm font-semibold text-gray-800 leading-tight" data-user-name>John Doe</p>
-                    <p class="text-[11px] text-gray-400">Administrator</p>
+                    <p data-user-name class="text-sm font-semibold text-gray-800 leading-tight">Loading...</p>
+                    <p data-user-role class="text-[11px] text-gray-400">—</p>
                 </div>
                 <i class="fa-solid fa-chevron-down text-gray-400 text-xs hidden sm:block"></i>
             </button>
@@ -169,7 +169,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8">
                     <div>
                         <h2 class="text-2xl font-bold text-gray-900">Dashboard Overview</h2>
-                        <p class="text-gray-500 mt-1">Welcome back, John! Here's what's happening.</p>
+                        <p class="text-gray-500 mt-1">Welcome back, <span data-user-name>User</span>! Here's what's happening.</p>
                     </div>
                 </div>
 
@@ -185,7 +185,7 @@
             </span>
         </div>
         <p class="text-gray-500 text-sm mb-1">Total Revenue</p>
-        <p class="text-2xl font-bold text-gray-900">$124,563</p>
+        <p class="text-2xl font-bold text-gray-900" data-stat="revenue">$—</p>
     </div>
     <div class="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg hover:shadow-blue-500/5 transition-all group">
         <div class="flex items-center justify-between mb-4">
@@ -197,7 +197,7 @@
             </span>
         </div>
         <p class="text-gray-500 text-sm mb-1">Total Orders</p>
-        <p class="text-2xl font-bold text-gray-900">1,248</p>
+        <p class="text-2xl font-bold text-gray-900" data-stat="orders">—</p>
     </div>
     <div class="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg hover:shadow-violet-500/5 transition-all group">
         <div class="flex items-center justify-between mb-4">
@@ -209,7 +209,7 @@
             </span>
         </div>
         <p class="text-gray-500 text-sm mb-1">Total Customers</p>
-        <p class="text-2xl font-bold text-gray-900">3,842</p>
+        <p class="text-2xl font-bold text-gray-900" data-stat="customers">—</p>
     </div>
     <div class="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg hover:shadow-emerald-500/5 transition-all group">
         <div class="flex items-center justify-between mb-4">
@@ -221,7 +221,7 @@
             </span>
         </div>
         <p class="text-gray-500 text-sm mb-1">Total Products</p>
-        <p class="text-2xl font-bold text-gray-900">456</p>
+        <p class="text-2xl font-bold text-gray-900" data-stat="products">—</p>
     </div>
 </div>
 
@@ -266,5 +266,6 @@
             </div>
         </main>
     </div>
+<script type="module" src="../js/pages/dashboard.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -110,12 +110,12 @@
     </nav>
     <div class="border-t border-sidebar-border p-4 flex-shrink-0">
         <div class="flex items-center gap-3">
-            <div data-user-initials class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">â€”</div>
+            <div data-user-initials class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">—</div>
             <div class="sidebar-text min-w-0">
                 <p data-user-name class="text-white text-sm font-semibold truncate">Loading...</p>
-                <p data-user-email class="text-gray-500 text-xs truncate">â€”</p>
+                <p data-user-email class="text-gray-500 text-xs truncate">—</p>
             </div>
-            <a href="../index.html" class="sidebar-text ml-auto text-gray-500 hover:text-red-400 transition-colors" title="Logout">
+            <a id="logoutBtn" href="#" class="sidebar-text ml-auto text-gray-500 hover:text-red-400 transition-colors" title="Logout">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </a>
         </div>
@@ -139,10 +139,10 @@
             </button>
             <div class="w-px h-8 bg-gray-200 mx-1 hidden sm:block"></div>
             <button class="flex items-center gap-2.5 pl-2 pr-3 py-1.5 hover:bg-gray-100 rounded-xl transition-colors">
-                <div data-user-initials class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-xs">â€”</div>
+                <div data-user-initials class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-bold text-xs">—</div>
                 <div class="hidden sm:block text-left">
                     <p data-user-name class="text-sm font-semibold text-gray-800 leading-tight">Loading...</p>
-                    <p data-user-role class="text-[11px] text-gray-400">â€”</p>
+                    <p data-user-role class="text-[11px] text-gray-400">—</p>
                 </div>
                 <i class="fa-solid fa-chevron-down text-gray-400 text-xs hidden sm:block"></i>
             </button>
@@ -169,7 +169,7 @@
         </div>
         <div>
             <p class="text-gray-500 text-sm">Pending Orders</p>
-            <p id="stat-pending" class="text-2xl font-bold text-gray-900">â€”</p>
+            <p id="stat-pending" class="text-2xl font-bold text-gray-900">—</p>
         </div>
     </div>
     <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex items-center gap-4">
@@ -178,7 +178,7 @@
         </div>
         <div>
             <p class="text-gray-500 text-sm">Processing</p>
-            <p id="stat-processing" class="text-2xl font-bold text-gray-900">â€”</p>
+            <p id="stat-processing" class="text-2xl font-bold text-gray-900">—</p>
         </div>
     </div>
     <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex items-center gap-4">
@@ -187,7 +187,7 @@
         </div>
         <div>
             <p class="text-gray-500 text-sm">Completed</p>
-            <p id="stat-completed" class="text-2xl font-bold text-gray-900">â€”</p>
+            <p id="stat-completed" class="text-2xl font-bold text-gray-900">—</p>
         </div>
     </div>
 </div>
@@ -226,5 +226,6 @@
 <script type="module" src="../js/pages/orders.js"></script>
 </body>
 </html>
+
 
 

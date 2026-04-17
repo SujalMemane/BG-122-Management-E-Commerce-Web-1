@@ -6,46 +6,70 @@ service cloud.firestore {
     function isAuth() {
       return request.auth != null;
     }
-
-    // ── HACKATHON MODE: Allow all authenticated users full access ──
-    // TODO: Tighten these rules for production!
     
+    function isAdmin() {
+      // Check if the authenticated user has the Administrator role
+      return isAuth() && get(/databases/$(database)/documents/settings/$(request.auth.uid)).data.role == 'Administrator';
+    }
+
+    // ── PRODUCTION SECURITY RULES ──
+    
+    // Products & Categories: Public to read (for storefront), Admins only to write
     match /products/{id} {
-      allow read, write: if isAuth();
+      allow read: if true; 
+      allow write: if isAdmin();
     }
 
     match /categories/{id} {
-      allow read, write: if isAuth();
+      allow read: if true; 
+      allow write: if isAdmin();
     }
 
+    // Orders: Admins have full access. Customers can fully manage their own.
     match /orders/{id} {
-      allow read, write: if isAuth();
+      allow read, write: if isAdmin();
+      allow create: if isAuth(); 
+      // Note: If you have storefront customers, add: || (isAuth() && resource.data.customerId == request.auth.uid)
     }
 
+    // Customers directory: Admins have full access.
     match /customers/{id} {
-      allow read, write: if isAuth();
+      allow read, write: if isAdmin();
+      allow read, write: if isAuth() && request.auth.uid == id;
     }
 
+    // Reviews: Public to read. Admins can moderate. Users can create.
     match /reviews/{id} {
-      allow read, write: if isAuth();
+      allow read: if true;
+      allow create: if isAuth();
+      allow update, delete: if isAdmin();
     }
 
+    // Promotions: Public to read (to apply discount), Admins only to modify
     match /promotions/{id} {
-      allow read, write: if isAuth();
+      allow read: if true;
+      allow write: if isAdmin();
     }
 
+    // Internal Dashboard Modules: Admins strictly
     match /staff/{id} {
-      allow read, write: if isAuth();
+      allow read, write: if isAdmin();
     }
 
     match /analytics_config/{id} {
-      allow read, write: if isAuth();
+      allow read, write: if isAdmin();
     }
 
-    // Settings: any authenticated user can read/write their own
+    // Shopping Carts: Users manage their own. Admins can view/manage.
+    match /carts/{id} {
+      allow read, write: if isAdmin() || (isAuth() && request.auth.uid == id);
+      allow create: if true; // Allow guest cart creation
+    }
+
+    // Settings Profile
     match /settings/{userId} {
       allow read, write: if isAuth() && request.auth.uid == userId;
-      allow read: if isAuth(); // Allow reading others for admin features
+      allow read: if isAdmin();
     }
   }
 }
